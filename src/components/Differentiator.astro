@@ -1,0 +1,52 @@
+---
+const pillars = [
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg>`,
+    title: 'Crece con tu negocio',
+    desc: 'Las soluciones que programamos escalan cuando vos escalás. Sin reescribir desde cero ni cambiar de proveedor.',
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`,
+    title: 'Criterio, no azar',
+    desc: 'Elegimos cada modelo y cada arquitectura con criterio técnico real. Aplicamos best practices de IA para que tu solución no quede obsoleta en seis meses.',
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="8"/></svg>`,
+    title: 'Mínimo consumo posible',
+    desc: 'Diseñamos cada flujo para usar solo los tokens, llamadas y recursos que hacen falta. La eficiencia de costos es una decisión de arquitectura, no una casualidad.',
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
+    title: 'Tus datos, protegidos',
+    desc: 'Seguridad desde el diseño: los datos de tu negocio y de tus clientes nunca salen de donde tienen que estar. Protección de datos como criterio de arquitectura.',
+  },
+];
+---
+
+<section id="diferencial" class="relative px-6 py-28">
+  <div class="mx-auto max-w-6xl">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="mb-4 text-xs font-bold tracking-[0.16em] text-gold-500 uppercase">Por qué elegirnos</p>
+      <h2 class="font-display text-4xl font-extrabold text-bark-900 sm:text-5xl">
+        Nuestro criterio es tu <span class="text-ember-500">garantía</span>
+      </h2>
+      <p class="mx-auto mt-5 text-lg leading-relaxed text-muted">
+        No improvisamos. Cada decisión técnica responde a una razón de negocio concreta — y te la podemos explicar.
+      </p>
+    </div>
+
+    <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        pillars.map((p) => (
+          <article class="group relative rounded-card border border-cream-200 bg-cream-50 p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-ember-300 hover:shadow-2xl hover:shadow-ember-500/10">
+            <div class="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-ember-500/10 to-gold-500/10 text-ember-500 transition-colors group-hover:from-ember-500 group-hover:to-ember-600 group-hover:text-white">
+              <span class="h-6 w-6 [&>svg]:h-6 [&>svg]:w-6" set:html={p.icon} />
+            </div>
+            <h3 class="font-display text-xl font-bold text-bark-900">{p.title}</h3>
+            <p class="mt-2.5 text-sm leading-relaxed text-muted">{p.desc}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

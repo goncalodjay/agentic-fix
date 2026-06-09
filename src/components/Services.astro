@@ -1,0 +1,65 @@
+---
+// Each service is something the team programs custom per client.
+const services = [
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg>`,
+    title: 'Atendé y vendé sin parar',
+    desc: 'Tu negocio responde consultas, califica leads y cierra ventas a cualquier hora, sin que nadie tenga que estar al teléfono. Reducís costos de atención y no perdés oportunidades.',
+    tags: ['WhatsApp API', 'Web chat', 'Multicanal', 'IA conversacional'],
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/><path d="M10 7h4M7 10v4M17 10v4M10 17h4"/></svg>`,
+    title: 'Eliminá el trabajo manual que frena a tu equipo',
+    desc: 'Conectamos tus herramientas y automatizamos los procesos repetitivos que hoy consumen horas de trabajo. Tu equipo se concentra en lo que importa; las máquinas hacen el resto.',
+    tags: ['Workflows', 'Integraciones', 'APIs', 'n8n'],
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>`,
+    title: 'Decisiones más rápidas con datos reales',
+    desc: 'Centralizamos la información dispersa de tu negocio y la hacemos consultable con IA. Tomás decisiones en minutos, no en días — sin depender de alguien que arme un reporte a mano.',
+    tags: ['RAG', 'Data lake', 'Dashboards', 'LangGraph'],
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
+    title: 'Una plataforma a medida para crecer sin límites',
+    desc: 'Si tu negocio necesita algo que no existe en el mercado, lo construimos: apps web con IA integrada, diseñadas para escalar con vos. Dejás de pagar licencias de terceros y tenés control total sobre tu solución.',
+    tags: ['Web apps', 'Astro', 'Python', 'IA integrada'],
+  },
+];
+---
+
+<section id="servicios" class="relative px-6 py-28">
+  <div class="mx-auto max-w-6xl">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="mb-4 text-xs font-bold tracking-[0.16em] text-gold-500 uppercase">Resultados concretos</p>
+      <h2 class="font-display text-4xl font-extrabold text-bark-900 sm:text-5xl">
+        Lo que tu negocio <span class="text-ember-500">logra con nosotros</span>
+      </h2>
+      <p class="mx-auto mt-5 text-lg leading-relaxed text-muted">
+        Cada solución es a medida. Tomamos tu problema real y lo programamos —
+        nada de herramientas genéricas que no encajan con tu operación.
+      </p>
+    </div>
+
+    <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        services.map((s) => (
+          <article class="group relative rounded-card border border-cream-200 bg-cream-50 p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-ember-300 hover:shadow-2xl hover:shadow-ember-500/10">
+            <div class="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-ember-500/10 to-gold-500/10 text-ember-500 transition-colors group-hover:from-ember-500 group-hover:to-ember-600 group-hover:text-white">
+              <span class="h-6 w-6 [&>svg]:h-6 [&>svg]:w-6" set:html={s.icon} />
+            </div>
+            <h3 class="font-display text-xl font-bold text-bark-900">{s.title}</h3>
+            <p class="mt-2.5 text-sm leading-relaxed text-muted">{s.desc}</p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              {s.tags.map((t) => (
+                <span class="rounded-full bg-cream-100 px-3 py-1 text-xs font-semibold text-bark-700">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

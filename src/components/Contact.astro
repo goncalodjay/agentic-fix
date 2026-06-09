@@ -1,0 +1,75 @@
+---
+// NOTE: form action is a placeholder — wire it to your endpoint (Formspree,
+// a serverless function, or your CRM) when you have it.
+---
+
+<section id="contacto" class="relative px-6 py-28">
+  <div class="mx-auto max-w-4xl">
+    <div class="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-ember-500 to-ember-700 px-8 py-14 text-white sm:px-14">
+      <div class="glow h-[300px] w-[300px] bg-gold-400/40" style="top:-80px; right:-60px;"></div>
+
+      <div class="relative grid items-center gap-10 md:grid-cols-2">
+        <div>
+          <h2 class="font-display text-4xl font-extrabold leading-tight sm:text-5xl">
+            Pedí tu diagnóstico gratis
+          </h2>
+          <p class="mt-4 text-lg leading-relaxed text-white/85">
+            Contanos qué necesitás y en 48hs te respondemos con una propuesta a medida. Sin compromiso, sin venderla genérica.
+          </p>
+          <ul class="mt-7 space-y-3 text-sm font-medium text-white/90">
+            <li class="flex items-center gap-3">
+              <span class="grid h-6 w-6 place-items-center rounded-full bg-white/20">✓</span>
+              Primera reunión de diagnóstico gratis
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="grid h-6 w-6 place-items-center rounded-full bg-white/20">✓</span>
+              Propuesta a medida en 48 h
+            </li>
+          </ul>
+        </div>
+
+        <form class="space-y-4" action="#" method="post">
+          <div>
+            <label class="sr-only" for="name">Nombre</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              placeholder="Tu nombre"
+              class="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/60 outline-none transition focus:border-white/60 focus:bg-white/15"
+            />
+          </div>
+          <div>
+            <label class="sr-only" for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              placeholder="tu@email.com"
+              class="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/60 outline-none transition focus:border-white/60 focus:bg-white/15"
+            />
+          </div>
+          <div>
+            <label class="sr-only" for="message">Mensaje</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+              placeholder="Contanos qué querés resolver…"
+              class="w-full resize-none rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/60 outline-none transition focus:border-white/60 focus:bg-white/15"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full rounded-xl bg-bark-900 px-6 py-3.5 font-bold text-cream-50 transition-transform hover:-translate-y-0.5 hover:bg-bark-800"
+          >
+            Pedir diagnóstico →
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

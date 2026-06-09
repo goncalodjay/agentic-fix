@@ -1,0 +1,128 @@
+@import 'tailwindcss';
+
+/* ===========================================================
+   THEME TOKENS — warm "molten" agency palette
+   Orange/gold accents over warm cream + deep ember dark.
+   =========================================================== */
+@theme {
+  --font-display: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand */
+  --color-ember-50: #fff8f1;
+  --color-ember-100: #fdeede;
+  --color-ember-200: #f9d8b8;
+  --color-ember-300: #f3b885;
+  --color-ember-400: #ed8f47;
+  --color-ember-500: #e8640a; /* primary orange */
+  --color-ember-600: #c9510a;
+  --color-ember-700: #a23f0d;
+
+  --color-gold-300: #e6c789;
+  --color-gold-400: #d6aa54;
+  --color-gold-500: #c9943a; /* gold accent */
+
+  /* Warm neutrals */
+  --color-cream-50: #fffaf5;
+  --color-cream-100: #fdf4ea;
+  --color-cream-200: #f8ead9;
+
+  --color-bark-700: #3d2e24;
+  --color-bark-800: #2a1f18;
+  --color-bark-900: #1a1310;
+  --color-bark-950: #120c09;
+
+  --color-muted: #7a6355;
+  --color-faint: #b09888;
+
+  --radius-card: 1.5rem;
+}
+
+/* ===========================================================
+   BASE
+   =========================================================== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-cream-50);
+    color: var(--color-bark-900);
+  }
+
+  ::selection {
+    background-color: var(--color-ember-500);
+    color: #fff;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+  }
+}
+
+/* ===========================================================
+   UTILITIES & EFFECTS
+   =========================================================== */
+
+/* Fine grain texture overlay (applied on dark sections) */
+.grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Glassmorphism card on light backgrounds */
+.glass {
+  background: rgba(255, 252, 248, 0.72);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 48px rgba(120, 80, 40, 0.08), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+}
+
+/* Animated gradient text */
+.text-molten {
+  background: linear-gradient(110deg, var(--color-ember-500), var(--color-gold-500), var(--color-ember-400));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+
+/* Staggered entrance on load */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Soft radial glow blob */
+.glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { animation: none; opacity: 1; transform: none; }
+  .text-molten { animation: none; }
+  html { scroll-behavior: auto; }
+}
