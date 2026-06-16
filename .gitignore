@@ -21,3 +21,6 @@ pnpm-debug.log*
 
 # astro
 .astro/
+
+# stray / non-project files
+CLAUDE-FABLE-5.md
