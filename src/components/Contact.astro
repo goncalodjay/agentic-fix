@@ -1,4 +1,6 @@
 ---
+const WEB3FORMS_ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
+const CALCOM_LINK = import.meta.env.PUBLIC_CALCOM_LINK ?? '';
 ---
 
 <section id="contacto" class="relative bg-cream-50 px-6 py-28">
@@ -58,7 +60,7 @@
           <div id="panel-form" role="tabpanel" data-state="idle">
             <form id="contact-form" class="space-y-4" novalidate>
               <!-- Web3Forms hidden inputs -->
-              <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+              <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
               <input type="hidden" name="subject" value="Nuevo diagnóstico solicitado desde FIX" />
               <input type="hidden" name="from_name" value="FIX Web" />
               <!-- Honeypot -->
@@ -119,7 +121,7 @@
             </p>
             <div
               class="cal-embed"
-              data-cal-link="YOUR_CALCOM_LINK"
+              data-cal-link={CALCOM_LINK}
               data-cal-namespace="fix-diagnostico"
               data-cal-config='{"layout":"month_view"}'
             ></div>
@@ -155,8 +157,8 @@
 </section>
 
 <script>
-const ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
-const CAL_LINK   = 'YOUR_CALCOM_LINK';
+const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
+const CAL_LINK   = import.meta.env.PUBLIC_CALCOM_LINK ?? '';
 const ENDPOINT   = 'https://api.web3forms.com/submit';
 
 const tabs      = document.getElementById('contact-tabs') as HTMLElement | null;
@@ -199,8 +201,8 @@ async function handleSubmit(e: Event) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (import.meta.env.DEV && (ACCESS_KEY.startsWith('YOUR_') || CAL_LINK.startsWith('YOUR_')))
-    console.warn('[contact] Replace YOUR_WEB3FORMS_ACCESS_KEY and YOUR_CALCOM_LINK before deploying.');
+  if (import.meta.env.DEV && (!ACCESS_KEY || !CAL_LINK))
+    console.warn('[contact] Set PUBLIC_WEB3FORMS_ACCESS_KEY and PUBLIC_CALCOM_LINK in your .env before deploying.');
   tabBtns.forEach(btn => btn.addEventListener('click', () => activateTab(btn.dataset.tab!)));
   document.getElementById('contact-form')?.addEventListener('submit', handleSubmit);
 });
