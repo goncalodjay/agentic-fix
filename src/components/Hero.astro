@@ -3,36 +3,37 @@
 
 <section
   id="top"
-  class="grain relative overflow-hidden bg-bark-900 px-6 pt-36 pb-24 text-cream-50"
+  class="grain relative overflow-hidden bg-bark-900 px-6 pt-36 pb-28 text-cream-50"
 >
   <!-- glow blobs -->
-  <div class="glow h-[420px] w-[420px] bg-ember-500/30" style="top:-120px; right:-80px;"></div>
-  <div class="glow h-[360px] w-[360px] bg-gold-500/20" style="bottom:-140px; left:-100px;"></div>
+  <div class="glow h-[500px] w-[500px] bg-ember-500/20" style="top:-160px; right:-120px;"></div>
+  <div class="glow h-[380px] w-[380px] bg-gold-500/15" style="bottom:-160px; left:-120px;"></div>
+  <div class="glow h-[280px] w-[280px] bg-ember-400/10" style="top:40%; left:50%; transform:translateX(-50%);"></div>
 
   <div class="relative mx-auto max-w-5xl text-center">
     <p
       class="reveal mb-7 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-bold tracking-widest text-gold-300 uppercase"
       style="animation-delay: 0.05s;"
     >
-      <span class="h-1.5 w-1.5 rounded-full bg-ember-400"></span>
-      IA con seguridad, hecha para tu negocio
+      <span class="h-1.5 w-1.5 rounded-full bg-ember-400 animate-pulse"></span>
+      Tecnología &amp; Marketing para tu negocio
     </p>
 
     <h1
       class="reveal font-display text-5xl leading-[1.05] font-extrabold tracking-tight sm:text-6xl md:text-7xl"
       style="animation-delay: 0.15s;"
     >
-      Tu equipo no da abasto.<br class="hidden sm:block" />
-      <span class="text-molten">La IA a medida</span> cambia eso.
+      Tu negocio merece<br class="hidden sm:block" />
+      <span class="text-molten">tecnología y estrategia</span> reales.
     </h1>
 
     <p
       class="reveal mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-cream-200/80"
       style="animation-delay: 0.3s;"
     >
-      Eliminamos el trabajo repetitivo, reducimos errores y ayudamos a tu negocio a escalar sin
-      contratar más personas. Soluciones de IA y seguridad
-      <span class="font-semibold text-cream-50">a medida de tu operación</span>, no plantillas genéricas.
+      Desarrollamos soluciones de IA a medida y estrategias de marketing para que tu empresa
+      escale sin contratar más personas.
+      <span class="font-semibold text-cream-50">Tecnología que vende. Marketing que convierte.</span>
     </p>
 
     <div
@@ -41,17 +42,34 @@
     >
       <a
         href="#contacto"
-        class="group rounded-full bg-gradient-to-r from-ember-500 to-ember-600 px-8 py-4 font-bold text-white shadow-xl shadow-ember-500/30 transition-transform hover:-translate-y-0.5"
+        class="group rounded-full bg-gradient-to-r from-ember-500 to-ember-600 px-8 py-4 font-bold text-white shadow-xl shadow-ember-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-ember-500/40 hover:shadow-2xl"
       >
         Pedí tu diagnóstico gratis
-        <span class="ml-1 inline-block transition-transform group-hover:translate-x-1">→</span>
+        <span class="ml-1 inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
       </a>
       <a
         href="#servicios"
-        class="rounded-full border border-white/20 px-8 py-4 font-bold text-cream-50 transition-colors hover:bg-white/10"
+        class="rounded-full border border-white/20 px-8 py-4 font-bold text-cream-50 transition-all duration-300 hover:bg-white/10 hover:border-white/30"
       >
         Ver servicios
       </a>
+    </div>
+
+    <!-- Stats row -->
+    <div
+      class="reveal mt-16 grid grid-cols-3 gap-6 border-t border-white/10 pt-10"
+      style="animation-delay: 0.6s;"
+    >
+      {[
+        { n: 'IA', label: 'Soluciones a medida' },
+        { n: '360°', label: 'Marketing & tecnología' },
+        { n: '48h', label: 'Respuesta garantizada' },
+      ].map((s) => (
+        <div class="text-center">
+          <div class="font-display text-2xl font-black text-ember-400 sm:text-3xl">{s.n}</div>
+          <div class="mt-1 text-xs font-medium text-cream-200/60">{s.label}</div>
+        </div>
+      ))}
     </div>
   </div>
 </section>

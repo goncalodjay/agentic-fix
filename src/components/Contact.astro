@@ -1,75 +1,207 @@
 ---
-// NOTE: form action is a placeholder — wire it to your endpoint (Formspree,
-// a serverless function, or your CRM) when you have it.
 ---
 
-<section id="contacto" class="relative px-6 py-28">
+<section id="contacto" class="relative bg-cream-50 px-6 py-28">
   <div class="mx-auto max-w-4xl">
-    <div class="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-ember-500 to-ember-700 px-8 py-14 text-white sm:px-14">
-      <div class="glow h-[300px] w-[300px] bg-gold-400/40" style="top:-80px; right:-60px;"></div>
+    <div class="scroll-reveal relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-ember-600 to-ember-700 px-8 py-14 text-white sm:px-14">
+      <div class="glow h-[320px] w-[320px] bg-gold-400/30" style="top:-80px; right:-60px;"></div>
+      <div class="glow h-[200px] w-[200px] bg-ember-400/20" style="bottom:-60px; left:30%;"></div>
 
       <div class="relative grid items-center gap-10 md:grid-cols-2">
+        <!-- Left column — unchanged -->
         <div>
           <h2 class="font-display text-4xl font-extrabold leading-tight sm:text-5xl">
             Pedí tu diagnóstico gratis
           </h2>
           <p class="mt-4 text-lg leading-relaxed text-white/85">
-            Contanos qué necesitás y en 48hs te respondemos con una propuesta a medida. Sin compromiso, sin venderla genérica.
+            Contanos qué necesitás y en 48 hs te respondemos con una propuesta a medida. Sin compromiso, sin genéricos.
           </p>
           <ul class="mt-7 space-y-3 text-sm font-medium text-white/90">
             <li class="flex items-center gap-3">
-              <span class="grid h-6 w-6 place-items-center rounded-full bg-white/20">✓</span>
+              <span class="grid h-6 w-6 place-items-center rounded-full bg-white/20 text-xs">✓</span>
               Primera reunión de diagnóstico gratis
             </li>
             <li class="flex items-center gap-3">
-              <span class="grid h-6 w-6 place-items-center rounded-full bg-white/20">✓</span>
+              <span class="grid h-6 w-6 place-items-center rounded-full bg-white/20 text-xs">✓</span>
               Propuesta a medida en 48 h
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="grid h-6 w-6 place-items-center rounded-full bg-white/20 text-xs">✓</span>
+              Tecnología + marketing en un solo equipo
             </li>
           </ul>
         </div>
 
-        <form class="space-y-4" action="#" method="post">
-          <div>
-            <label class="sr-only" for="name">Nombre</label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              required
-              placeholder="Tu nombre"
-              class="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/60 outline-none transition focus:border-white/60 focus:bg-white/15"
-            />
+        <!-- Right column — tab widget -->
+        <div id="contact-tabs" data-active="form">
+          <!-- Tablist -->
+          <div class="contact-tablist" role="tablist" aria-label="Cómo querés contactarnos">
+            <button
+              class="contact-tab"
+              role="tab"
+              data-tab="form"
+              aria-selected="true"
+              aria-controls="panel-form"
+              tabindex="0"
+            >Escribinos</button>
+            <button
+              class="contact-tab"
+              role="tab"
+              data-tab="cal"
+              aria-selected="false"
+              aria-controls="panel-cal"
+              tabindex="-1"
+            >Agendá una reunión</button>
           </div>
-          <div>
-            <label class="sr-only" for="email">Email</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              placeholder="tu@email.com"
-              class="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/60 outline-none transition focus:border-white/60 focus:bg-white/15"
-            />
+
+          <!-- Panel A: email form -->
+          <div id="panel-form" role="tabpanel" data-state="idle">
+            <form id="contact-form" class="space-y-4" novalidate>
+              <!-- Web3Forms hidden inputs -->
+              <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+              <input type="hidden" name="subject" value="Nuevo diagnóstico solicitado desde FIX" />
+              <input type="hidden" name="from_name" value="FIX Web" />
+              <!-- Honeypot -->
+              <input type="checkbox" name="botcheck" class="hidden" style="display:none" aria-hidden="true" />
+
+              <label class="sr-only" for="name">Nombre</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                placeholder="Tu nombre"
+                class="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/55 outline-none transition-all duration-200 focus:border-white/60 focus:bg-white/15"
+              />
+
+              <label class="sr-only" for="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="tu@email.com"
+                class="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/55 outline-none transition-all duration-200 focus:border-white/60 focus:bg-white/15"
+              />
+
+              <label class="sr-only" for="message">Mensaje</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+                placeholder="Contanos qué querés resolver…"
+                class="w-full resize-none rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/55 outline-none transition-all duration-200 focus:border-white/60 focus:bg-white/15"
+              ></textarea>
+
+              <button
+                type="submit"
+                class="btn-submit w-full rounded-xl bg-white px-6 py-3.5 font-bold text-ember-700 transition-all duration-200 hover:-translate-y-0.5 hover:bg-cream-50 hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                <span data-when="idle success">Pedir diagnóstico →</span>
+                <span data-when="sending">Enviando…</span>
+              </button>
+
+              <!-- Feedback messages -->
+              <p class="form-feedback" role="status" data-when="success">
+                ¡Gracias! Te respondemos en menos de 48 h.
+              </p>
+              <p class="form-feedback form-feedback--err" role="alert" data-when="error">
+                Algo salió mal. Intentá de nuevo o escribinos directamente.
+              </p>
+            </form>
           </div>
-          <div>
-            <label class="sr-only" for="message">Mensaje</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              required
-              placeholder="Contanos qué querés resolver…"
-              class="w-full resize-none rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/60 outline-none transition focus:border-white/60 focus:bg-white/15"
-            ></textarea>
+
+          <!-- Panel B: Cal.com embed -->
+          <div id="panel-cal" role="tabpanel" hidden>
+            <p class="mb-3 text-sm text-white/75">
+              Elegí el horario que mejor te quede y nos encontramos online.
+            </p>
+            <div
+              class="cal-embed"
+              data-cal-link="YOUR_CALCOM_LINK"
+              data-cal-namespace="fix-diagnostico"
+              data-cal-config='{"layout":"month_view"}'
+            ></div>
           </div>
-          <button
-            type="submit"
-            class="w-full rounded-xl bg-bark-900 px-6 py-3.5 font-bold text-cream-50 transition-transform hover:-translate-y-0.5 hover:bg-bark-800"
-          >
-            Pedir diagnóstico →
-          </button>
-        </form>
+        </div>
       </div>
     </div>
   </div>
+
+  <style>
+    [data-state] [data-when] { display: none; }
+    [data-state="idle"]    [data-when~="idle"],
+    [data-state="sending"] [data-when~="sending"],
+    [data-state="success"] [data-when~="success"],
+    [data-state="error"]   [data-when~="error"],
+    [data-state="error"]   [data-when~="idle"] { display: block; }
+
+    [data-state="success"] #contact-form > input:not([type=hidden]):not([type=checkbox]),
+    [data-state="success"] #contact-form > textarea,
+    [data-state="success"] .btn-submit { display: none; }
+
+    #contact-tabs[data-active="form"] #panel-cal,
+    #contact-tabs[data-active="cal"]  #panel-form { display: none; }
+
+    .contact-tab { border-radius: 9999px; padding: 0.5rem 1.25rem; font-size: 0.875rem; font-weight: 700; transition: all 0.2s; color: rgba(255,255,255,0.65); cursor: pointer; background: transparent; border: none; }
+    .contact-tab[aria-selected="true"] { background: #fff; color: var(--color-ember-700); }
+    .contact-tablist { display: flex; gap: 0.25rem; background: rgba(255,255,255,0.12); border-radius: 9999px; padding: 0.25rem; margin-bottom: 1.25rem; }
+    .cal-embed { min-height: 520px; width: 100%; border-radius: 0.75rem; overflow: hidden; background: rgba(255,255,255,0.05); }
+    .form-feedback { font-size: 0.875rem; margin-top: 0.5rem; display: none; }
+    .form-feedback[role="status"] { color: #86efac; }
+    .form-feedback--err { color: #fca5a5; }
+  </style>
 </section>
+
+<script>
+const ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+const CAL_LINK   = 'YOUR_CALCOM_LINK';
+const ENDPOINT   = 'https://api.web3forms.com/submit';
+
+const tabs      = document.getElementById('contact-tabs') as HTMLElement | null;
+const formPanel = document.getElementById('panel-form')  as HTMLElement | null;
+const calPanel  = document.getElementById('panel-cal')   as HTMLElement | null;
+const tabBtns   = document.querySelectorAll<HTMLElement>('.contact-tab');
+
+function setState(state: string) {
+  if (formPanel) formPanel.dataset.state = state;
+}
+
+function activateTab(tab: string) {
+  if (!tabs) return;
+  tabs.dataset.active = tab;
+  tabBtns.forEach(btn => {
+    const active = btn.dataset.tab === tab;
+    btn.setAttribute('aria-selected', String(active));
+    btn.tabIndex = active ? 0 : -1;
+  });
+  if (calPanel) calPanel.hidden = tab !== 'cal';
+}
+
+async function handleSubmit(e: Event) {
+  e.preventDefault();
+  const form = e.currentTarget as HTMLFormElement;
+  const submitBtn = form.querySelector<HTMLButtonElement>('.btn-submit');
+  if (submitBtn) submitBtn.disabled = true;
+  setState('sending');
+  try {
+    const res  = await fetch(ENDPOINT, { method: 'POST', body: new FormData(form) });
+    const json = await res.json();
+    setState(res.ok && json.success ? 'success' : 'error');
+  } catch {
+    setState('error');
+  } finally {
+    if (submitBtn && formPanel?.dataset.state !== 'success') {
+      submitBtn.disabled = false;
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (import.meta.env.DEV && (ACCESS_KEY.startsWith('YOUR_') || CAL_LINK.startsWith('YOUR_')))
+    console.warn('[contact] Replace YOUR_WEB3FORMS_ACCESS_KEY and YOUR_CALCOM_LINK before deploying.');
+  tabBtns.forEach(btn => btn.addEventListener('click', () => activateTab(btn.dataset.tab!)));
+  document.getElementById('contact-form')?.addEventListener('submit', handleSubmit);
+});
+</script>

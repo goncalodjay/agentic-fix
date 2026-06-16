@@ -1,6 +1,5 @@
 ---
-// Each service is something the team programs custom per client.
-const services = [
+const techServices = [
   {
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg>`,
     title: 'Atendé y vendé sin parar',
@@ -9,7 +8,7 @@ const services = [
   },
   {
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/><path d="M10 7h4M7 10v4M17 10v4M10 17h4"/></svg>`,
-    title: 'Eliminá el trabajo manual que frena a tu equipo',
+    title: 'Eliminá el trabajo manual',
     desc: 'Conectamos tus herramientas y automatizamos los procesos repetitivos que hoy consumen horas de trabajo. Tu equipo se concentra en lo que importa; las máquinas hacen el resto.',
     tags: ['Workflows', 'Integraciones', 'APIs', 'n8n'],
   },
@@ -21,45 +20,177 @@ const services = [
   },
   {
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
-    title: 'Una plataforma a medida para crecer sin límites',
-    desc: 'Si tu negocio necesita algo que no existe en el mercado, lo construimos: apps web con IA integrada, diseñadas para escalar con vos. Dejás de pagar licencias de terceros y tenés control total sobre tu solución.',
+    title: 'Una plataforma a medida para crecer',
+    desc: 'Si tu negocio necesita algo que no existe en el mercado, lo construimos: apps web con IA integrada, diseñadas para escalar con vos. Control total sobre tu solución.',
     tags: ['Web apps', 'Astro', 'Python', 'IA integrada'],
+  },
+];
+
+const marketingServices = [
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
+    title: 'Estrategia de Marketing',
+    desc: 'Analizamos tu negocio, tu competencia y tu mercado para identificar oportunidades de crecimiento y definir acciones concretas orientadas a resultados.',
+    tags: ['Análisis', 'Competencia', 'Plan de acción'],
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/></svg>`,
+    title: 'Redes Sociales',
+    desc: 'Planificación, creación y gestión de contenido para construir una presencia digital consistente y generar una comunidad alrededor de tu marca.',
+    tags: ['Contenido', 'Comunidad', 'Gestión'],
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>`,
+    title: 'Email Marketing',
+    desc: 'Diseño y automatización de campañas para recuperar clientes, aumentar la recompra y mantener una comunicación constante con tu audiencia.',
+    tags: ['Campañas', 'Automatización', 'Recompra'],
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 19-9-9 19-2-8-8-2z"/></svg>`,
+    title: 'Influencer Marketing',
+    desc: 'Selección y gestión de creadores de contenido alineados con tu marca para generar validación, alcance y confianza real en tu audiencia objetivo.',
+    tags: ['Creadores', 'Alcance', 'Confianza'],
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>`,
+    title: 'Publicidad Digital',
+    desc: 'Planificación y optimización de campañas en Meta y Google Ads para aumentar la visibilidad de tu marca, generar oportunidades de negocio y potenciar las ventas.',
+    tags: ['Meta Ads', 'Google Ads', 'Performance'],
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>`,
+    title: 'E-commerce & Conversión',
+    desc: 'Optimización de tiendas online, experiencia de compra, promociones y acciones enfocadas en aumentar la tasa de conversión y el ticket promedio.',
+    tags: ['Tiendas online', 'CRO', 'Ticket promedio'],
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+    title: 'Automatizaciones con IA',
+    desc: 'Implementación de procesos inteligentes para atención al cliente, seguimiento de leads, generación de contenido y automatización de tareas repetitivas.',
+    tags: ['Atención al cliente', 'Leads', 'IA generativa'],
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>`,
+    title: 'Análisis y Reportes',
+    desc: 'Medición de resultados, seguimiento de métricas clave y optimización continua para tomar decisiones basadas en datos, no en intuición.',
+    tags: ['Métricas', 'KPIs', 'Optimización'],
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>`,
+    title: 'Consultoría de Negocio',
+    desc: 'Acompañamos a empresas y emprendedores en la definición de estrategias comerciales y de crecimiento, identificando oportunidades a través de marketing, tecnología e inteligencia artificial.',
+    tags: ['Estrategia', 'Crecimiento', 'IA & Marketing'],
   },
 ];
 ---
 
-<section id="servicios" class="relative px-6 py-28">
+<section id="servicios" class="relative bg-white px-6 py-28">
   <div class="mx-auto max-w-6xl">
-    <div class="mx-auto max-w-2xl text-center">
-      <p class="mb-4 text-xs font-bold tracking-[0.16em] text-gold-500 uppercase">Resultados concretos</p>
+
+    <!-- Header -->
+    <div class="scroll-reveal mx-auto max-w-2xl text-center">
+      <p class="mb-4 text-xs font-bold tracking-[0.16em] text-gold-500 uppercase">Soluciones integrales</p>
       <h2 class="font-display text-4xl font-extrabold text-bark-900 sm:text-5xl">
-        Lo que tu negocio <span class="text-ember-500">logra con nosotros</span>
+        Todo lo que tu empresa <span class="text-ember-500">necesita para crecer</span>
       </h2>
       <p class="mx-auto mt-5 text-lg leading-relaxed text-muted">
-        Cada solución es a medida. Tomamos tu problema real y lo programamos —
-        nada de herramientas genéricas que no encajan con tu operación.
+        Combinamos tecnología de punta con estrategias de marketing para que tu negocio escale de verdad.
       </p>
     </div>
 
-    <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        services.map((s) => (
-          <article class="group relative rounded-card border border-cream-200 bg-cream-50 p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-ember-300 hover:shadow-2xl hover:shadow-ember-500/10">
-            <div class="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-ember-500/10 to-gold-500/10 text-ember-500 transition-colors group-hover:from-ember-500 group-hover:to-ember-600 group-hover:text-white">
-              <span class="h-6 w-6 [&>svg]:h-6 [&>svg]:w-6" set:html={s.icon} />
-            </div>
-            <h3 class="font-display text-xl font-bold text-bark-900">{s.title}</h3>
-            <p class="mt-2.5 text-sm leading-relaxed text-muted">{s.desc}</p>
-            <div class="mt-5 flex flex-wrap gap-2">
-              {s.tags.map((t) => (
-                <span class="rounded-full bg-cream-100 px-3 py-1 text-xs font-semibold text-bark-700">
-                  {t}
-                </span>
-              ))}
-            </div>
-          </article>
-        ))
-      }
+    <!-- Tabs -->
+    <div class="scroll-reveal mt-12 flex justify-center" data-delay="120">
+      <div class="inline-flex rounded-full border border-cream-200 bg-cream-100 p-1.5">
+        <button
+          id="btn-tech"
+          class="rounded-full px-6 py-2.5 text-sm font-bold transition-all duration-200"
+        >
+          Tecnología &amp; IA
+        </button>
+        <button
+          id="btn-marketing"
+          class="rounded-full px-6 py-2.5 text-sm font-bold transition-all duration-200 text-muted"
+        >
+          Marketing &amp; Growth
+        </button>
+      </div>
     </div>
+
+    <!-- Tech Panel -->
+    <div id="panel-tech" class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+      {techServices.map((s) => (
+        <article class="group relative rounded-card border border-cream-200 bg-cream-50 p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-ember-300 hover:shadow-2xl hover:shadow-ember-500/10">
+          <div class="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-ember-500/10 to-gold-500/10 text-ember-600 transition-all duration-300 group-hover:from-ember-600 group-hover:to-ember-500 group-hover:text-white">
+            <span class="h-6 w-6 [&>svg]:h-6 [&>svg]:w-6" set:html={s.icon} />
+          </div>
+          <h3 class="font-display text-xl font-bold text-bark-900">{s.title}</h3>
+          <p class="mt-2.5 text-sm leading-relaxed text-muted">{s.desc}</p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            {s.tags.map((t) => (
+              <span class="rounded-full bg-cream-100 px-3 py-1 text-xs font-semibold text-bark-700 transition-colors group-hover:bg-ember-50 group-hover:text-ember-700">
+                {t}
+              </span>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Marketing Panel -->
+    <div id="panel-marketing" class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" style="display:none">
+      {marketingServices.map((s) => (
+        <article class="group relative rounded-card border border-cream-200 bg-cream-50 p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-ember-300 hover:shadow-2xl hover:shadow-ember-500/10">
+          <div class="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-ember-500/10 to-gold-500/10 text-ember-600 transition-all duration-300 group-hover:from-ember-600 group-hover:to-ember-500 group-hover:text-white">
+            <span class="h-6 w-6 [&>svg]:h-6 [&>svg]:w-6" set:html={s.icon} />
+          </div>
+          <h3 class="font-display text-xl font-bold text-bark-900">{s.title}</h3>
+          <p class="mt-2.5 text-sm leading-relaxed text-muted">{s.desc}</p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            {s.tags.map((t) => (
+              <span class="rounded-full bg-cream-100 px-3 py-1 text-xs font-semibold text-bark-700 transition-colors group-hover:bg-ember-50 group-hover:text-ember-700">
+                {t}
+              </span>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+
   </div>
 </section>
+
+<script>
+  const btnTech = document.getElementById('btn-tech')!;
+  const btnMkt = document.getElementById('btn-marketing')!;
+  const panelTech = document.getElementById('panel-tech')!;
+  const panelMkt = document.getElementById('panel-marketing')!;
+
+  const ACTIVE = ['bg-white', 'text-bark-900', 'shadow-sm'];
+  const INACTIVE = ['text-muted'];
+
+  function activate(activeBtn: HTMLElement, inactiveBtn: HTMLElement, show: HTMLElement, hide: HTMLElement) {
+    activeBtn.classList.add(...ACTIVE);
+    activeBtn.classList.remove(...INACTIVE);
+    inactiveBtn.classList.remove(...ACTIVE);
+    inactiveBtn.classList.add(...INACTIVE);
+
+    hide.style.display = 'none';
+    show.style.opacity = '0';
+    show.style.transform = 'translateY(10px)';
+    show.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+    show.style.display = 'grid';
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        show.style.opacity = '1';
+        show.style.transform = 'translateY(0)';
+      });
+    });
+  }
+
+  // Initial state
+  btnTech.classList.add(...ACTIVE);
+
+  btnTech.addEventListener('click', () => activate(btnTech, btnMkt, panelTech, panelMkt));
+  btnMkt.addEventListener('click', () => activate(btnMkt, btnTech, panelMkt, panelTech));
+</script>
