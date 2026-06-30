@@ -58,7 +58,7 @@
           <div id="panel-form" role="tabpanel" data-state="idle">
             <form id="contact-form" class="space-y-4" novalidate>
               <!-- Web3Forms hidden inputs -->
-              <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+              <input type="hidden" name="access_key" value="049e317c-5daa-433d-a3f5-c79e152429d3" />
               <input type="hidden" name="subject" value="Nuevo diagnóstico solicitado desde FIX" />
               <input type="hidden" name="from_name" value="FIX Web" />
               <!-- Honeypot -->
@@ -119,7 +119,7 @@
             </p>
             <div
               class="cal-embed"
-              data-cal-link="YOUR_CALCOM_LINK"
+              data-cal-link="fix-el2ffk/30min"
               data-cal-namespace="fix-diagnostico"
               data-cal-config='{"layout":"month_view"}'
             ></div>
@@ -155,8 +155,8 @@
 </section>
 
 <script>
-const ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
-const CAL_LINK   = 'YOUR_CALCOM_LINK';
+const ACCESS_KEY = '049e317c-5daa-433d-a3f5-c79e152429d3';
+const CAL_LINK   = 'fix-el2ffk/30min';
 const ENDPOINT   = 'https://api.web3forms.com/submit';
 
 const tabs      = document.getElementById('contact-tabs') as HTMLElement | null;
@@ -204,4 +204,37 @@ document.addEventListener('DOMContentLoaded', () => {
   tabBtns.forEach(btn => btn.addEventListener('click', () => activateTab(btn.dataset.tab!)));
   document.getElementById('contact-form')?.addEventListener('submit', handleSubmit);
 });
+</script>
+
+<!-- Cal.com embed loader -->
+<script type="text/javascript">
+  (function (C, A, L) {
+    let p = function (a, ar) { a.q.push(ar); };
+    let d = C.document;
+    C.Cal = C.Cal || function () {
+      let cal = C.Cal;
+      let ar = arguments;
+      if (!cal.loaded) {
+        cal.ns = {};
+        cal.q = cal.q || [];
+        d.head.appendChild(d.createElement("script")).src = A;
+        cal.loaded = true;
+      }
+      if (ar[0] === L) {
+        const api = function () { p(api, arguments); };
+        const namespace = ar[1];
+        api.q = api.q || [];
+        typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar);
+        return;
+      }
+      p(cal, ar);
+    };
+  })(window, "https://app.cal.com/embed/embed.js", "init");
+
+  Cal("inline", {
+    elementOrSelector: ".cal-embed",
+    calLink: "fix-el2ffk/30min",
+    layout: "month_view"
+  });
+  Cal("ui", { styles: { branding: { brandColor: "#c2410c" } } });
 </script>
