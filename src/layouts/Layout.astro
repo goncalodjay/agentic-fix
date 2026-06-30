@@ -19,6 +19,10 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://app.cal.com https://cal.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.web3forms.com https://app.cal.com https://cal.com; frame-src https://app.cal.com https://cal.com; form-action 'self' https://api.web3forms.com; frame-ancestors 'self'; base-uri 'self';"
+    />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
